@@ -1,0 +1,8 @@
+<div>
+  <ul class="list-group">
+    <li [ngClass]="c == currentCat ? 'active' : ''"  class="list-group-item clickable" *ngFor="let c of categories" (click)="onProduct(c)">
+      <h5>{{c.nom}}</h5>
+      <p>{{c.description}}</p>
+    </li>
+  </ul>
+</div>

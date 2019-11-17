@@ -1,0 +1,32 @@
+<div *ngFor="let p of produits">
+  <div class=" col-lg-6">
+    <div class="panel panel-default " >
+      <div class="panel-heading text-center" >
+        {{p.nom}}
+      </div>
+      <div class="panel-body">
+        <button class="btn-warning pull-left" *ngIf="authService.isAdmin()" (click)="onEdit(p)"> Edit </button>
+
+        <div class="col-lg-12">
+          <br>
+          <img src="{{'http://localhost:8080/productPhoto/'+p.id+'?ts='+getTs()}}" height="140" width="100%">
+          <br><br>
+        </div>
+        <div class="col-lg-12">
+          <p>Desciprtion : {{p.descrition}}</p>
+          <p>Prix : {{p.currentPrice |number:'3.2-2'}}  DH </p>
+          <p>Quantite : {{p.quntite}}</p>
+        </div>
+        <div  *ngIf="EditPhoto && currentProduct==p ">
+            <input (change)="onChangeFile($event)" type="file" class="col-lg-9" >
+            <button  (click)="upload()" class="btn-primary col-lg-3">Upload</button>
+          {{pourcentage}}
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
